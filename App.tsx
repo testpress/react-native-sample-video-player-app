@@ -15,6 +15,7 @@ import {
   Text,
   useColorScheme,
   View,
+  Button,
 } from 'react-native';
 
 import {
@@ -28,6 +29,10 @@ import {
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
+
+import { NativeModules } from 'react-native';
+
+const { FragmentModule } = NativeModules;
 
 function Section({children, title}: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -62,6 +67,11 @@ function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+const handleButtonPress = () => {
+    console.log("Button Pressed!");
+    FragmentModule.showCustomFragment("CY9MBTRBIDs","ad1b7e44-78b7-4bc6-86cf-19554a160421")
+  };
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -76,6 +86,7 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
+          <Button title="Play Video"  onPress={handleButtonPress} />
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.

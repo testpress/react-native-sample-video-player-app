@@ -116,4 +116,5 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+    implementation "com.tpstreams.player:player:3.1.2"
 }
