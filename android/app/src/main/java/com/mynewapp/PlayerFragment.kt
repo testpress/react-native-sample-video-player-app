@@ -78,4 +78,14 @@ class PlayerFragment : Fragment() {
     })
   }
 
+  override fun onResume() {
+    super.onResume()
+    Log.d("ReactNativeJS", "onResume: ")
+  }
+
+  override fun onDestroy() {
+    super.onDestroy()
+    Log.d("ReactNativeJS", "onDestroy: ")
+  }
+
 }
